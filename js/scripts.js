@@ -7,7 +7,7 @@
     Issues: https://github.com/RyanFitzgerald/devportfolio-template/issues
 
     Description: This file contains all the scripts associated with the single-page
-    portfolio website.jooj
+    portfolio website.jooj'
 */
 
 (function($) {
