@@ -34,19 +34,19 @@
 */
 
 // Define base and accent colors
-$base-color: #3498db;
+$base-color: #0648d6 ;
 $base-color-hover: darken($base-color, 10%);
 
 // Define background colors
-$background: #fff;
-$background-alt: #f2f2f5;
+$background: #0D1B2A  ;
+$background-alt: #1E2A47 ;
 
 // Define border colors
-$border: #dcd9d9;
+$border: #374054 ;
 
 // Define text colors
-$heading: #374054;
-$text: #74808a;
+$heading: #A9B2C3 ;
+$text: #74808A ;
 
 /*
     ---------------------
@@ -154,7 +154,7 @@ header {
 
     ul {
         display: inline-block;
-        background: $background;
+        background: #121212 ;
         text-align: center;
         padding: 10px;
         margin: 0;
@@ -168,13 +168,13 @@ header {
 
     a {
         display: block;
-        color: $base-color;
+        color: #e6e6e6;
         padding: 10px;
 
         &:hover {
-            color: $base-color-hover;
+            color: #cccccc;
             text-decoration: none;
-            background: #eee;
+            background: rgb(0, 0, 0);
             border-radius: 4px;
         }
 
@@ -206,24 +206,24 @@ header {
     position: fixed;
     right: 15px;
     top: 10px;
-    color: $base-color;
+    color: #c8d1e0;
     font-size: 1.5em;
     z-index: 20;
     padding: 0 7px;
     border-radius: 4px;
-    background: $background;
+    background: #121212;
 }
 
 #mobile-menu-close {
     display: none;
     text-align: right;
     width: 100%;
-    background: $background;
+    background: #121212;
     font-size: 1.5em;
     padding-right: 15px;
     padding-top: 10px;
     cursor: pointer;
-    color: $base-color;
+    color: #c8d1e0;
 
     span {
         font-size: 0.5em;
@@ -244,7 +244,7 @@ footer {
 
     p {
         margin: 0;
-        color: $text;
+        color: #a9b2c3;
     }
 }
 
@@ -283,11 +283,11 @@ footer {
 
     a {
         display: block;
-        color: $text;
+        color: #a9b2c3;
         padding: 10px;
 
         &:hover {
-            color: $base-color;
+            color: #999da3;
         }
     }
 }
@@ -301,7 +301,7 @@ footer {
     @include transition();
 
     &:hover {
-        color: $base-color;
+        color: #000000;
         background: #fff;
         text-decoration: none;
     }
@@ -336,7 +336,7 @@ footer {
 }
 
 .background-alt {
-    background: $background-alt;
+    background: #1b2435 ;
 }
 
 /*
@@ -378,7 +378,7 @@ footer {
     }
 
     h2 {
-        color: lighten($base-color, 25%);
+        color: lighten(#1B263B, 60%);
         font-weight: 500;
         font-size: 2.25em;
         margin-bottom: 15px;
@@ -393,7 +393,7 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba($base-color-hover, 0.8);
+    background: rgba(#1B263B, 0.8);
     z-index: 1;
 }
 
@@ -448,13 +448,14 @@ footer {
 #about {
     padding: 75px 15px;
     border-bottom: 1px solid $border;
+    background-color: #121212 ;
 
     h2 {
-        color: $heading;
+        color: #C8D1E0;
     }
 
     p {
-        color: $text;
+        color: #C8D1E0;
         margin: 0;
     }
 }
@@ -636,7 +637,7 @@ footer {
     text-align: center;
 
     h2 {
-        color: $heading;
+        color: #D1D5DB ;
         margin-bottom: 50px;
     }
 }
@@ -646,7 +647,7 @@ footer {
     max-width: 900px;
     margin: 0 auto 30px auto;
     overflow: hidden;
-    background: #fff;
+    background: #141414 ;
     border-radius: 4px;
 }
 
@@ -664,12 +665,12 @@ footer {
     h3 {
         font-size: 1.5em;
         font-weight: 300;
-        color: $heading;
+        color: #e6e6e6 ;
         margin: 0 0 15px 0;
     }
 
     p {
-        color: $text;
+        color: #e6e6e6 ;
         margin: 0 0 15px 0;
         font-size: 0.9em;
     }
@@ -697,9 +698,10 @@ footer {
 #skills {
     padding: 50px 15px;
     text-align: center;
+    background-color: #121212 ;
 
     h2 {
-        color: $heading;
+        color: #C8D1E0 ;
         margin-bottom: 50px;
     }
 
@@ -715,7 +717,7 @@ footer {
         margin: 7px;
         padding: 5px 10px;
         color: $heading;
-        background: darken($background-alt, 5%);
+        background: darken(#2b2b2b, 5%);
         list-style: none;
         cursor: default;
         font-size: 1.2em;
@@ -730,12 +732,12 @@ footer {
 
 #contact {
     padding: 50px 15px;
-    background: $base-color;
+    background: #1b2435 ;
     text-align: center;
 
     h2 {
         margin: 0 0 15px 0;
-        color: #fff;
+        color: #E0E6F1;
         font-weight: 500;
     }
 }
@@ -751,16 +753,16 @@ footer {
         border-radius: 4px;
         border: none;
         margin-bottom: 10px;
-        background: darken($base-color, 15%);
-        color: #fff;
+        background: darken(#1b2435, 15%);
+        color: #E0E6F1;
         @include transition();
         @include placeholder {
-            color: #fff;
+            color: #E0E6F1;
         }
 
         &:focus {
             outline: none;
-            background: darken($base-color, 25%);
+            background: #0d1118
         }
     }
 
@@ -772,11 +774,11 @@ footer {
     button {
         display: block;
         width: 100%;
-        background: #fff;
+        background: #2b2b2b;
         border-radius: 4px;
         padding: 5px 10px;
         border: none;
-        color: $base-color;
+        color: #C8D1E0;
         font-weight: 700;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         @include transition();
