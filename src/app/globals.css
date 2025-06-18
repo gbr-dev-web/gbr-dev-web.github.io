@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* inter e anta */
-@import url("https://fonts.googleapis.com/css2?family=Anta&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -54,7 +51,7 @@ h3 {
 h4,
 h5,
 h6 {
-  font-family: "Inter", "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  font-family: var(--font-inter), "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
   font-weight: 600;
   text-align: center;
 }
@@ -73,7 +70,7 @@ h6 {
 p {
   line-height: 1.6;
   font-size: 1rem;
-  font-family: "Inter", "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  font-family: var(--font-inter), "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
   color: var(--color-text);
   font-weight: 400;
 }

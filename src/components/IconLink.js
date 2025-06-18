@@ -1,4 +1,3 @@
-// components/IconLink.jsx
 import React from "react";
 
 const IconLink = ({ icon: Icon, href, size = "w-9 h-9" }) => (
