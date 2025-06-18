@@ -2,6 +2,8 @@
 const nextConfig = {
   output: "export",
   images: { unoptimized: true } ,
+  basePath: '/gbr-dev-web',
+  assetPrefix: '/gbr-dev-web/',
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")
