@@ -15,12 +15,16 @@ const anta = Anta({
   variable: "--font-anta",
 });
 
+export function generateViewport() {
+    return {
+      themeColor: "#000000",
+    };
+  }  
 
 export const metadata = {
   title: "Gabriel Martins - Desenvolvedor Web Fullstack | Portfólio",
   description:
     "Portfólio de Gabriel Martins, desenvolvedor web fullstack, mostrando projetos, habilidades e experiência profissional.",
-  themeColor: "#000000",
   verification: {
     google: "EBkE2UVxki1-EEwP7ZjSMA4gbIFaf48tz8lKEk8d8nA",
   },

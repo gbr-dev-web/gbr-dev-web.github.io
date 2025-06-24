@@ -8,6 +8,8 @@ import Html from "@/assets/stacks/html.svg";
 import Js from "@/assets/stacks/javascript.svg";
 import ReactLogo from "@/assets/stacks/react.svg";
 import Node from "@/assets/stacks/node.svg";
+import Tailwind from "@/assets/stacks/tailwind.svg";
+import Mongo from "@/assets/stacks/mongo.svg";
 
 import Plus from "@/assets/icons/plus.svg";
 import External from "@/assets/icons/externalLink.svg";
@@ -26,6 +28,15 @@ const IconLink = lazy(() => import("../IconLink"));
 const NavMobile = lazy(() => import("../NavMobile"));
 
 export default function MainContent() {
+  const techs = [
+    { name: "CSS", icon: Css },
+    { name: "HTML 5", icon: Html },
+    { name: "JAVASCRIPT", icon: Js },
+    { name: "REACT", icon: ReactLogo },
+    { name: "NODE.JS", icon: Node },
+    { name: "TAILWIND", icon: Tailwind },
+    { name: "MONGODB", icon: Mongo },
+  ];
   return (
     <div className="inline-flex flex-col justify-start items-center gap-6 lg:gap-8">
       {/* NAV COMPLETA - só em telas maiores */}
@@ -80,82 +91,92 @@ export default function MainContent() {
       </a>
 
       {/* stacks */}
-      <div className="mt-5 flex gap-4">
-        <Css className="w-10 h-10" />
-        <Html className="w-10 h-10" />
-        <Js className="w-10 h-10" />
-        <ReactLogo className="w-10 h-10" />
-        <Node className="w-10 h-10" />
-      </div>
-
-      <h3 id="sobre" className="mt-10">
-        Sobre Mim
-      </h3>
-
-      {/* sobre mim */}
-      <div className="flex flex-col lg:flex-row justify-start items-center gap-6 lg:gap-10">
-        {/* Imagem (fica em cima no mobile, no meio no desktop) */}
-        <div className="order-1 lg:order-2 flex justify-center lg:justify-start items-center">
-          <div className="md:w-80 md:h-80 w-60 h-60 rounded-full overflow-hidden relative">
-            <Image
-              src={perfil}
-              alt="foto"
-              loading="lazy"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 240px, 320px"
-            />
-          </div>
-        </div>
-
-        {/* Texto (fica no meio no mobile, à esquerda no desktop) */}
-        <p className="order-2 md:order-1 max-w-3xl text-sm sm:text-base text-left whitespace-normal">
-          Prazer, Sou <span>jovem desenvolvedor</span> web capaz de{" "}
-          <span>criar projetos do zero</span> e <span>bem estruturados</span>.
-          <br />
-          <br />
-          Meu interesse por programação começou em <span>2018</span>, quando
-          tive meu primeiro contato com a linguagem <span>c#</span>. Naquela
-          época, adorava <span>criar programas</span> simples, como
-          calculadoras, e <span>compartilhar meus scripts</span> com os meus
-          amigos.
-          <br />
-          <br />
-          Somente em <span>2024</span> que eu tive a oportunidade de{" "}
-          <span>estudar</span> mais <span>seriamente</span> sobre a área e
-          descobri que essa era <span>minha vocação</span>. Tenho me dedicado a{" "}
-          <span>aprender</span> tecnologias modernas como{" "}
-          <span>Javascript</span>, <span>Node.js</span>, e <span>React</span> e
-          atualmente estou estudando <span>UI/UX</span>.
-          <br />
-          <br />
-          Estou sempre <span>me desafiando</span> e me atualizando com as
-          tendências do mercado. Sigo motivado por aquela mesma{" "}
-          <span>curiosidade</span> de quando comecei, agora com ainda mais{" "}
-          <span>foco disciplina</span> e vontade de <span>construir</span>{" "}
-          soluções <span>úteis</span> e bem feitas.
-        </p>
-
-        {/* Experiências (fica por último no mobile, à direita no desktop) */}
-        <div className="order-3 px-5 lg:px-0 flex lg:flex-col lg:justify-center justify-between items-center lg:gap-10 w-full lg:w-auto">
-          <div className="flex flex-col justify-start items-center lg:items-start gap-0.5">
-            <div className="flex justify-center items-center gap-0.5">
-              <h5>1</h5>
-              <Plus className="w-8 h-8 stroke-orange-500 text-orange-500" />
-            </div>
-            <p className="max-[500px]:text-xs text-lg">Ano de experiência</p>
-          </div>
-          <div className="flex flex-col justify-start items-center lg:items-start gap-0.5">
-            <div className="flex justify-center items-center gap-0.5">
-              <h5>4</h5>
-              <Plus className="w-8 h-8 stroke-orange-500 text-orange-500" />
-            </div>
-            <p className="max-[500px]:text-xs md:text-lg">
-              Projetos Finalizados
-            </p>
-          </div>
+      <div className="w-screen overflow-hidden mt-5">
+        <div className="flex animate-marquee-reverse whitespace-nowrap w-max gap-x-10">
+          {[...Array(2)].flatMap((_, group) =>
+            techs.map(({ name, icon: Icon }, i) => (
+              <div
+                key={`${group}-${i}`}
+                className="flex items-center gap-2 min-w-max px-4"
+              >
+                <Icon className="w-10 h-10" />
+                <p className="text-white font-bold text-[20px] font-inter">
+                  {name}
+                </p>
+              </div>
+            ))
+          )}
         </div>
       </div>
+
+      <section id="sobre" className="mt-8">
+        <h3>Sobre Mim</h3>
+
+        {/* sobre mim */}
+        <div className="flex flex-col lg:flex-row justify-start items-center gap-6 lg:gap-10">
+          {/* Imagem (fica em cima no mobile, no meio no desktop) */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-start items-center">
+            <div className="md:w-80 md:h-80 w-60 h-60 rounded-full overflow-hidden relative">
+              <Image
+                src={perfil}
+                alt="foto"
+                loading="lazy"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 240px, 320px"
+              />
+            </div>
+          </div>
+
+          {/* Texto (fica no meio no mobile, à esquerda no desktop) */}
+          <p className="order-2 md:order-1 max-w-3xl text-sm sm:text-base text-left whitespace-normal">
+            Prazer, Sou <span>jovem desenvolvedor</span> web capaz de{" "}
+            <span>criar projetos do zero</span> e <span>bem estruturados</span>.
+            <br />
+            <br />
+            Meu interesse por programação começou em <span>2018</span>, quando
+            tive meu primeiro contato com a linguagem <span>c#</span>. Naquela
+            época, adorava <span>criar programas</span> simples, como
+            calculadoras, e <span>compartilhar meus scripts</span> com os meus
+            amigos.
+            <br />
+            <br />
+            Somente em <span>2024</span> que eu tive a oportunidade de{" "}
+            <span>estudar</span> mais <span>seriamente</span> sobre a área e
+            descobri que essa era <span>minha vocação</span>. Tenho me dedicado
+            a <span>aprender</span> tecnologias modernas como{" "}
+            <span>Javascript</span>, <span>Node.js</span>, e <span>React</span>{" "}
+            e atualmente estou estudando <span>UI/UX</span>.
+            <br />
+            <br />
+            Estou sempre <span>me desafiando</span> e me atualizando com as
+            tendências do mercado. Sigo motivado por aquela mesma{" "}
+            <span>curiosidade</span> de quando comecei, agora com ainda mais{" "}
+            <span>foco disciplina</span> e vontade de <span>construir</span>{" "}
+            soluções <span>úteis</span> e bem feitas.
+          </p>
+
+          {/* Experiências (fica por último no mobile, à direita no desktop) */}
+          <div className="order-3 px-5 lg:px-0 flex lg:flex-col lg:justify-center justify-between items-center lg:gap-10 w-full lg:w-auto">
+            <div className="flex flex-col justify-start items-center lg:items-start gap-0.5">
+              <div className="flex justify-center items-center gap-0.5">
+                <h5>1</h5>
+                <Plus className="w-8 h-8 stroke-orange-500 text-orange-500" />
+              </div>
+              <p className="max-[500px]:text-xs text-lg">Ano de experiência</p>
+            </div>
+            <div className="flex flex-col justify-start items-center lg:items-start gap-0.5">
+              <div className="flex justify-center items-center gap-0.5">
+                <h5>4</h5>
+                <Plus className="w-8 h-8 stroke-orange-500 text-orange-500" />
+              </div>
+              <p className="max-[500px]:text-xs md:text-lg">
+                Projetos Finalizados
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <h3 id="projetos" className="mt-10">
         Projetos

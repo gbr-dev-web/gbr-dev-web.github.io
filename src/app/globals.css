@@ -19,14 +19,14 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100vh; /* nao pode ser menor que 100% da tela visivel */
-  color: #ffffff;; 
+  color: #ffffff;
 }
 
 @layer base {
-    body {
-      @apply lg:px-20 md:px-12 sm:px-6 px-4;
-    }
+  body {
+    @apply lg:px-20 md:px-12 sm:px-6 px-4;
   }
+}
 
 h1,
 h2,
@@ -45,13 +45,14 @@ h2 {
 }
 
 h3 {
- font-size: clamp(1.875rem, 4vw, 3rem);
+  font-size: clamp(1.875rem, 4vw, 3rem);
 }
 
 h4,
 h5,
 h6 {
-  font-family: var(--font-inter), "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  font-family: var(--font-inter), "Segoe UI", "Roboto", "Helvetica Neue",
+    sans-serif;
   font-weight: 600;
   text-align: center;
 }
@@ -70,7 +71,8 @@ h6 {
 p {
   line-height: 1.6;
   font-size: 1rem;
-  font-family: var(--font-inter), "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  font-family: var(--font-inter), "Segoe UI", "Roboto", "Helvetica Neue",
+    sans-serif;
   color: var(--color-text);
   font-weight: 400;
 }
@@ -108,3 +110,17 @@ span {
   opacity: 1;
   transform: rotate(-45deg) translateY(100%);
 }
+
+@keyframes marquee-reverse {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  
+  .animate-marquee-reverse {
+    animation: marquee-reverse 20s linear infinite;
+  }
+  
