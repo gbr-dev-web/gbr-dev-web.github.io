@@ -11,15 +11,15 @@ const inter = Inter({
 
 const anta = Anta({
   subsets: ["latin"],
-  weight: "400", 
+  weight: "400",
   variable: "--font-anta",
 });
 
 export function generateViewport() {
-    return {
-      themeColor: "#000000",
-    };
-  }  
+  return {
+    themeColor: "#000000",
+  };
+}
 
 export const metadata = {
   title: "Gabriel Martins - Desenvolvedor Web Fullstack | Portfólio",
@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
       <body className={`${inter.variable} ${anta.variable} antialiased`}>
-        {children}
+        <div className="w-full px-4 sm:px-6 md:px-12 lg:px-20">{children}</div>
       </body>
     </html>
   );

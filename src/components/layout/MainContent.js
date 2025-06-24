@@ -91,16 +91,16 @@ export default function MainContent() {
       </a>
 
       {/* stacks */}
-      <div className="w-screen overflow-hidden mt-5">
-        <div className="flex animate-marquee-reverse whitespace-nowrap w-max gap-x-10">
+      <div className="overflow-hidden w-screen -mx-4 sm:-mx-6 md:-mx-12 lg:-mx-20">
+        <div className="flex animate-marquee-reverse whitespace-nowrap w-max gap-x-6 sm:gap-x-10">
           {[...Array(2)].flatMap((_, group) =>
             techs.map(({ name, icon: Icon }, i) => (
               <div
                 key={`${group}-${i}`}
                 className="flex items-center gap-2 min-w-max px-4"
               >
-                <Icon className="w-10 h-10" />
-                <p className="text-white font-bold text-[20px] font-inter">
+                <Icon className="w-8 h-8 sm:w-10 sm:h-10" />
+                <p className="text-white font-bold text-[16px] sm:text[20px] font-inter">
                   {name}
                 </p>
               </div>
