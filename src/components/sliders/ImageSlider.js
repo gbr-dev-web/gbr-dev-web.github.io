@@ -38,9 +38,8 @@ export default function ProjectSlider({
     <>
       {/* Slider */}
       <div
-        className={`relative w-full aspect-[${aspectRatio}] overflow-hidden shadow-md transform transition-transform duration-300 hover:scale-105 cursor-pointer rounded-sm`}
+        className={`relative w-full aspect-[${aspectRatio}] overflow-hidden transform transition-transform duration-300 hover:scale-105 cursor-pointer rounded-sm shadow-[0px_0px_4px_0px_rgba(255,104,0,1.00)]`}
         onClick={openModal}
-        style={{ outline: "1px solid #FF7300" }}
       >
         {images.map((img, index) => (
           <div

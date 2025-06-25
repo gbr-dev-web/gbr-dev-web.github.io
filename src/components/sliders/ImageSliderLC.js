@@ -47,9 +47,8 @@ export default function ImageSliderLC() {
     <>
       {/* Slider */}
       <div
-        className="relative w-full overflow-hidden shadow-md cursor-pointer rounded-sm transform transition-transform duration-300 hover:scale-105 self-strech h-full"
+        className="relative w-full overflow-hiddencursor-pointer rounded-sm transform transition-transform duration-300 hover:scale-105 self-strech h-full shadow-[0px_0px_4px_0px_rgba(255,104,0,1.00)]"
         onClick={openModal}
-        style={{ outline: "1px solid #FF7300" }}
       >
         {images.map((img, index) => (
           <div

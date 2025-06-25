@@ -98,6 +98,12 @@ export default function Navbar() {
               Projetos
             </button>
             <button
+              onClick={() => handleRedirect("#feedbacks")}
+              className="text-white text-3xl font-semibold hover:text-orange-400 transition"
+            >
+              Feedbacks
+            </button>
+            <button
               onClick={() => handleRedirect("#contato")}
               className="text-white text-3xl font-semibold hover:text-orange-400 transition"
             >

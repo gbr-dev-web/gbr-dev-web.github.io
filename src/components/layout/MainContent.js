@@ -3,14 +3,6 @@
 import { Suspense, lazy } from "react";
 import Image from "next/image";
 
-import Css from "@/assets/stacks/css3.svg";
-import Html from "@/assets/stacks/html.svg";
-import Js from "@/assets/stacks/javascript.svg";
-import ReactLogo from "@/assets/stacks/react.svg";
-import Node from "@/assets/stacks/node.svg";
-import Tailwind from "@/assets/stacks/tailwind.svg";
-import Mongo from "@/assets/stacks/mongo.svg";
-
 import storeapp1 from "@/assets/img/storeapp/storeapp.webp";
 import storeapp2 from "@/assets/img/storeapp/storeapp2.png";
 import storeapp3 from "@/assets/img/storeapp/storeapp3.png";
@@ -22,6 +14,7 @@ import blogapp3 from "@/assets/img/blogapp/blogapp3.png";
 import Plus from "@/assets/icons/plus.svg";
 import External from "@/assets/icons/externalLink.svg";
 import Arrow from "@/assets/icons/arrowUp.svg";
+import Quote from "@/assets/icons/quote.svg";
 
 import Github from "@/assets/social/github.svg";
 import Linkedin from "@/assets/social/linkedin.svg";
@@ -32,20 +25,12 @@ import perfil from "@/assets/img/perfil.webp";
 import ProjectSlider from "../sliders/ImageSlider";
 import ImageSliderLC from "../sliders/ImageSliderLC";
 
-// const SkillPill = lazy(() => import("../SkillPill"));
+import TechMarquee from "../TechMarquee";
+
 const IconLink = lazy(() => import("../IconLink"));
 const NavMobile = lazy(() => import("../NavMobile"));
 
 export default function MainContent() {
-  const techs = [
-    { name: "CSS", icon: Css },
-    { name: "HTML 5", icon: Html },
-    { name: "JAVASCRIPT", icon: Js },
-    { name: "REACT", icon: ReactLogo },
-    { name: "NODE.JS", icon: Node },
-    { name: "TAILWIND", icon: Tailwind },
-    { name: "MONGODB", icon: Mongo },
-  ];
   return (
     <div className="inline-flex flex-col justify-start items-center gap-6 lg:gap-8">
       {/* NAV COMPLETA - só em telas maiores */}
@@ -65,6 +50,14 @@ export default function MainContent() {
               className="relative z-10 no-underline text-xl text-white text-center font-semibold font-inter hover:text-orange-400 hover:drop-shadow-md transition-colors duration-300"
             >
               Projetos
+            </a>
+          </li>
+          <li className="holographic-hover hover:scale-105 hover:bg-gray-800 transition-transform duration-300 ease-in-out rounded-lg px-2 py-1">
+            <a
+              href="#feedbacks"
+              className="relative z-10 no-underline text-xl text-white text-center font-semibold font-inter hover:text-orange-400 hover:drop-shadow-md transition-colors duration-300"
+            >
+              Feedbacks
             </a>
           </li>
           <li className="holographic-hover hover:scale-105 hover:bg-gray-800 transition-transform duration-300 ease-in-out rounded-lg px-2 py-1">
@@ -100,23 +93,7 @@ export default function MainContent() {
       </a>
 
       {/* stacks */}
-      <div className="overflow-hidden w-screen mt-4 -mx-4 sm:-mx-6 md:-mx-12 lg:-mx-20">
-        <div className="flex animate-marquee-reverse whitespace-nowrap w-max gap-x-6 sm:gap-x-10">
-          {[...Array(2)].flatMap((_, group) =>
-            techs.map(({ name, icon: Icon }, i) => (
-              <div
-                key={`${group}-${i}`}
-                className="flex items-center gap-2 min-w-max px-4"
-              >
-                <Icon className="w-8 h-8 sm:w-10 sm:h-10" />
-                <p className="text-white font-bold text-[16px] sm:text[20px] font-inter">
-                  {name}
-                </p>
-              </div>
-            ))
-          )}
-        </div>
-      </div>
+      <TechMarquee />
 
       <section id="sobre" className="mt-6">
         <h3>Sobre Mim</h3>
@@ -252,22 +229,44 @@ export default function MainContent() {
                   prevenindo <span>XSS</span>.
                 </>
               }
-              skills={[
-                "React",
-                "Javascript",
-                "Tailwind",
-              ]}
+              skills={["React", "Javascript", "Tailwind"]}
               links={[
                 {
                   icon: Github,
                   href: "https://github.com/gbr-dev-web/blogApp",
                   text: "Repositório",
-                }
+                },
               ]}
             />
           </div>
           {/* Lucas Gesso */}
           <ImageSliderLC />
+        </div>
+      </section>
+
+      <section id="feedbacks" className="mt-6 w-full">
+        <h3 className="mb-4">Feedbacks</h3>
+
+        <div className="w-full max-w-[700px] h-auto p-4 sm:p-5 mx-auto bg-black rounded-lg shadow-[0px_0px_8px_0px_rgba(255,104,0,1.00)] flex flex-col justify-start gap-2 sm:gap-2.5">
+          <Quote className="w-7 h-7 sm:w-9 sm:h-9 rotate-180" />
+
+          <div className="px-6 sm:px-10">
+            <p className="text-white text-sm sm:text-base font-normal text-justify">
+              Fiquei extremamente satisfeito com o serviço de criação do meu
+              site! O resultado superou minhas expectativas: o layout ficou
+              moderno, profissional e muito bem estruturado. Estou satisfeito.
+              Obrigado! Gabriel Martins.
+            </p>
+          </div>
+
+          <Quote className="w-7 h-7 sm:w-9 sm:h-9 self-end" />
+
+          <p className="text-center text-white text-xl sm:text-2xl font-bold">
+            Lucas
+          </p>
+          <p className="text-center text-[#C4c4c4] text-base sm:text-xl italic">
+            Gesseiro Profissional
+          </p>
         </div>
       </section>
 
