@@ -11,6 +11,14 @@ import Node from "@/assets/stacks/node.svg";
 import Tailwind from "@/assets/stacks/tailwind.svg";
 import Mongo from "@/assets/stacks/mongo.svg";
 
+import storeapp1 from "@/assets/img/storeapp/storeapp.webp";
+import storeapp2 from "@/assets/img/storeapp/storeapp2.png";
+import storeapp3 from "@/assets/img/storeapp/storeapp3.png";
+
+import blogapp from "@/assets/img/blogapp/blogapp.webp";
+import blogapp2 from "@/assets/img/blogapp/blogapp2.png";
+import blogapp3 from "@/assets/img/blogapp/blogapp3.png";
+
 import Plus from "@/assets/icons/plus.svg";
 import External from "@/assets/icons/externalLink.svg";
 import Arrow from "@/assets/icons/arrowUp.svg";
@@ -20,10 +28,11 @@ import Linkedin from "@/assets/social/linkedin.svg";
 import Email from "@/assets/social/email.svg";
 
 import perfil from "@/assets/img/perfil.webp";
-import storeapp from "@/assets/img/storeapp.webp";
-import blogapp from "@/assets/img/blogapp.webp";
 
-const SkillPill = lazy(() => import("../SkillPill"));
+import ProjectSlider from "../sliders/ImageSlider";
+import ImageSliderLC from "../sliders/ImageSliderLC";
+
+// const SkillPill = lazy(() => import("../SkillPill"));
 const IconLink = lazy(() => import("../IconLink"));
 const NavMobile = lazy(() => import("../NavMobile"));
 
@@ -91,7 +100,7 @@ export default function MainContent() {
       </a>
 
       {/* stacks */}
-      <div className="overflow-hidden w-screen -mx-4 sm:-mx-6 md:-mx-12 lg:-mx-20">
+      <div className="overflow-hidden w-screen mt-4 -mx-4 sm:-mx-6 md:-mx-12 lg:-mx-20">
         <div className="flex animate-marquee-reverse whitespace-nowrap w-max gap-x-6 sm:gap-x-10">
           {[...Array(2)].flatMap((_, group) =>
             techs.map(({ name, icon: Icon }, i) => (
@@ -109,7 +118,7 @@ export default function MainContent() {
         </div>
       </div>
 
-      <section id="sobre" className="mt-8">
+      <section id="sobre" className="mt-6">
         <h3>Sobre Mim</h3>
 
         {/* sobre mim */}
@@ -167,7 +176,7 @@ export default function MainContent() {
             </div>
             <div className="flex flex-col justify-start items-center lg:items-start gap-0.5">
               <div className="flex justify-center items-center gap-0.5">
-                <h5>4</h5>
+                <h5>5</h5>
                 <Plus className="w-8 h-8 stroke-orange-500 text-orange-500" />
               </div>
               <p className="max-[500px]:text-xs md:text-lg">
@@ -178,79 +187,93 @@ export default function MainContent() {
         </div>
       </section>
 
-      <h3 id="projetos" className="mt-10">
-        Projetos
-      </h3>
+      <section id="projetos" className="mt-6 w-full">
+        <div className="mb-4">
+          <h3>Projetos</h3>
+          <p className="text-center text-sm text-[#c4c4c4]">(clique neles!)</p>
+        </div>
 
-      {/* projetos */}
-      {/* storeapp */}
-      <div className="w-full flex flex-col-reverse md:flex-row justify-between items-start md:items-center gap-6">
-        <div className="flex-1 flex-wrap flex flex-col justify-start items-start gap-6 w-full">
-          <h5 className="self-center text-2xl md:text-3xl">StoreApp</h5>
-          <p>
-            Projeto pessoal baseado em <span>e-commerce</span> criado para fins{" "}
-            <span>didáticos</span>, o usuário pode <span>colocar</span> produtos
-            na lista de <span>favoritos</span>, <span>colocar</span> produtos no{" "}
-            <span>carrinho</span> e <span>finalizar pedido</span>. Ele possui,
-            design <span>responsivo</span>, sistema de autenticação{" "}
-            <span>segura</span> e boa estruturação com o padrão <span>MVC</span>
-            .
-          </p>
-
-          <div className="flex flex-col justify-start items-start gap-3.5">
-            <Suspense fallback={<div>Carregando...</div>}>
-              <div className="flex-wrap flex justify-start items-center gap-2">
-                <SkillPill text="Node.js" />
-                <SkillPill text="MySQL" />
-                <SkillPill text="Handlebars" />
-                <SkillPill text="Javascript" />
-                <SkillPill text="Tailwind" />
-              </div>
-            </Suspense>
-            <Suspense fallback={<div>Carregando...</div>}>
-              <div className="flex justify-start items-center gap-5">
-                <IconLink
-                  icon={Github}
-                  href="https://github.com/gbr-dev-web/StoreApp"
-                />
-                <IconLink
-                  icon={External}
-                  href="https://storeapp-klm0.onrender.com/"
-                />
-              </div>
-            </Suspense>
+        <div className="grid grid-cols-2 w-full max-[400px]:px-2 px-6 sm:px-12 md:px-16 lg:px-20 xl:px-24 gap-2.5">
+          <div className="flex flex-col gap-2.5">
+            {/* storeapp */}
+            <ProjectSlider
+              images={[
+                { src: storeapp1, position: "object-top" },
+                { src: storeapp2, position: "object-center" },
+                { src: storeapp3, position: "object-bottom" },
+              ]}
+              title="StoreApp"
+              description={
+                <>
+                  Projeto pessoal baseado em <span>e-commerce</span> criado para
+                  fins <span>didáticos</span>, o usuário pode{" "}
+                  <span>colocar</span> produtos na lista de{" "}
+                  <span>favoritos</span>, <span>colocar</span> produtos no{" "}
+                  <span>carrinho</span> e <span>finalizar pedido</span>. Ele
+                  possui design <span>responsivo</span>, sistema de autenticação{" "}
+                  <span>segura</span> e boa estruturação com o padrão{" "}
+                  <span>MVC</span>.
+                </>
+              }
+              skills={[
+                "Node.js",
+                "MySQL",
+                "Handlebars",
+                "Javascript",
+                "Tailwind",
+              ]}
+              links={[
+                {
+                  icon: Github,
+                  href: "https://github.com/gbr-dev-web/Storeapp",
+                  text: "Repositório",
+                },
+                {
+                  icon: External,
+                  href: "https://storeapp-klm0.onrender.com/",
+                  text: "Acesse",
+                },
+              ]}
+            />
+            {/* blogapp */}
+            <ProjectSlider
+              images={[
+                { src: blogapp, position: "object-top" },
+                { src: blogapp2, position: "object-top" },
+                { src: blogapp3, position: "object-top" },
+              ]}
+              title="Blogapp"
+              description={
+                <>
+                  BlogApp é uma <span>aplicação</span> baseada em{" "}
+                  <span>Blog</span>, através dele eu tive meu primeiro contato
+                  com <span>React</span> na prática, o usuário pode criar posts
+                  linguagem <span>Markdown</span> de forma <span>segura</span>{" "}
+                  prevenindo <span>XSS</span>.
+                </>
+              }
+              skills={[
+                "React",
+                "Javascript",
+                "Tailwind",
+              ]}
+              links={[
+                {
+                  icon: Github,
+                  href: "https://github.com/gbr-dev-web/blogApp",
+                  text: "Repositório",
+                }
+              ]}
+            />
           </div>
+          {/* Lucas Gesso */}
+          <ImageSliderLC />
         </div>
 
-        <div
-          className="
-            relative
-            lg:w-[550px] lg:h-[450px]
-            md:w-[400px] md:h-[325px]
-            sm:w-[300px]
-            w-[250px]
-            max-h-[450px]
-            h-auto
-            aspect-video 
-            overflow-hidden
-            shadow-[8px_8px_15px_0px_rgba(0,0,0,0.25)]
-            mx-auto md:mx-0
-        "
-        >
-          <Image
-            src={storeapp}
-            alt="storeapp"
-            className="rounded-sm object-cover object-top"
-            fill
-            style={{ objectFit: "cover", objectPosition: "top" }} // só pra garantir
-          />
-        </div>
-      </div>
-
-      {/* blogapp */}
-      <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-        <div
-          className="
+        {/* blogapp */}
+        {/* <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div
+            className="
             relative
             lg:w-[550px] lg:h-[450px]
             md:w-[400px] md:h-[325px]
@@ -262,43 +285,41 @@ export default function MainContent() {
             shadow-[8px_8px_15px_0px_rgba(0,0,0,0.25)]
             mx-auto md:mx-0
           "
-        >
-          <Image
-            src={blogapp}
-            alt="blogapp"
-            fill
-            className="rounded-sm object-cover object-top"
-            style={{ objectFit: "cover", objectPosition: "top" }}
-          />
-        </div>
-        <div className="flex-1 flex-wrap flex flex-col justify-start items-start gap-6 w-full">
-          <h5 className="self-center text-2xl md:text-3xl">BlogApp</h5>
-          <p>
-            BlogApp é uma <span>aplicação</span> baseada em <span>Blog</span>,
-            através dele eu tive meu primeiro contato com <span>React</span> na
-            prática, o usuário pode criar posts usando linguagem{" "}
-            <span>Markdown</span> de forma <span>segura</span> prevenindo{" "}
-            <span>XSS</span>.
-          </p>
-          <div className=" flex flex-col justify-start items-start gap-3.5">
-            <Suspense fallback={<div>Carregando...</div>}>
-              <div className=" flex-wrap flex justify-start items-center gap-2">
-                <SkillPill text="React" />
-                <SkillPill text="Javascript" />
-                <SkillPill text="Tailwind" />
-              </div>
-            </Suspense>
-            <Suspense fallback={<div>Carregando...</div>}>
-              <div className="flex justify-start items-center gap-5">
-                <IconLink
-                  icon={Github}
-                  href="https://github.com/gbr-dev-web/blogApp"
-                />
-              </div>
-            </Suspense>
+          >
+            <Image
+              src={blogapp}
+              alt="blogapp"
+              fill
+              className="rounded-sm object-cover object-top"
+              style={{ objectFit: "cover", objectPosition: "top" }}
+            />
+          </div>
+          <div className="flex-1 flex-wrap flex flex-col justify-start items-start gap-6 w-full">
+            <h5 className="self-center text-2xl md:text-3xl">BlogApp</h5>
+            <p>
+         
+            </p>
+            <div className=" flex flex-col justify-start items-start gap-3.5">
+              <Suspense fallback={<div>Carregando...</div>}>
+                <div className=" flex-wrap flex justify-start items-center gap-2">
+                  <SkillPill text="React" />
+                  <SkillPill text="Javascript" />
+                  <SkillPill text="Tailwind" />
+                </div>
+              </Suspense>
+              <Suspense fallback={<div>Carregando...</div>}>
+                <div className="flex justify-start items-center gap-5">
+                  <IconLink
+                    icon={Github}
+                    href="https://github.com/gbr-dev-web/blogApp"
+                  />
+                </div>
+              </Suspense>
+            </div>
           </div>
         </div>
-      </div>
+         */}
+      </section>
 
       {/* contato */}
       <div
@@ -344,7 +365,7 @@ export default function MainContent() {
 
       <div
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-4 right-4 p-1.5 bg-orange-500 rounded-[10px] flex justify-center items-center cursor-pointer z-50"
+        className="fixed bottom-4 right-4 p-1.5 bg-orange-500 rounded-[10px] flex justify-center items-center cursor-pointer z-40"
       >
         <Arrow className="w-8 h-8 text-white" />
       </div>
