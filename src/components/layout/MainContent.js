@@ -193,7 +193,7 @@ export default function MainContent() {
           <p className="text-center text-sm text-[#c4c4c4]">(clique neles!)</p>
         </div>
 
-        <div className="grid grid-cols-2 w-full min-h-[400px] max-[400px]:px-2 px-6 sm:px-12 md:px-16 lg:px-20 xl:px-24 gap-2.5">
+        <div className="grid grid-cols-2 w-full max-[400px]:px-2 px-6 sm:px-12 md:px-16 lg:px-20 xl:px-24 gap-2.5">
           <div className="flex flex-col gap-2.5">
             {/* storeapp */}
             <ProjectSlider
