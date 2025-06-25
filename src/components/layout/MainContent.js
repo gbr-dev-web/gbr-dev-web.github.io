@@ -193,7 +193,7 @@ export default function MainContent() {
           <p className="text-center text-sm text-[#c4c4c4]">(clique neles!)</p>
         </div>
 
-        <div className="grid grid-cols-2 w-full max-[400px]:px-2 px-6 sm:px-12 md:px-16 lg:px-20 xl:px-24 gap-2.5">
+        <div className="grid grid-cols-2 w-full min-h-[400px] max-[400px]:px-2 px-6 sm:px-12 md:px-16 lg:px-20 xl:px-24 gap-2.5">
           <div className="flex flex-col gap-2.5">
             {/* storeapp */}
             <ProjectSlider
@@ -269,56 +269,6 @@ export default function MainContent() {
           {/* Lucas Gesso */}
           <ImageSliderLC />
         </div>
-
-        {/* blogapp */}
-        {/* <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-          <div
-            className="
-            relative
-            lg:w-[550px] lg:h-[450px]
-            md:w-[400px] md:h-[325px]
-            sm:w-[300px] 
-            w-[250px]
-            h-auto 
-            aspect-video
-            overflow-hidden
-            shadow-[8px_8px_15px_0px_rgba(0,0,0,0.25)]
-            mx-auto md:mx-0
-          "
-          >
-            <Image
-              src={blogapp}
-              alt="blogapp"
-              fill
-              className="rounded-sm object-cover object-top"
-              style={{ objectFit: "cover", objectPosition: "top" }}
-            />
-          </div>
-          <div className="flex-1 flex-wrap flex flex-col justify-start items-start gap-6 w-full">
-            <h5 className="self-center text-2xl md:text-3xl">BlogApp</h5>
-            <p>
-         
-            </p>
-            <div className=" flex flex-col justify-start items-start gap-3.5">
-              <Suspense fallback={<div>Carregando...</div>}>
-                <div className=" flex-wrap flex justify-start items-center gap-2">
-                  <SkillPill text="React" />
-                  <SkillPill text="Javascript" />
-                  <SkillPill text="Tailwind" />
-                </div>
-              </Suspense>
-              <Suspense fallback={<div>Carregando...</div>}>
-                <div className="flex justify-start items-center gap-5">
-                  <IconLink
-                    icon={Github}
-                    href="https://github.com/gbr-dev-web/blogApp"
-                  />
-                </div>
-              </Suspense>
-            </div>
-          </div>
-        </div>
-         */}
       </section>
 
       {/* contato */}
