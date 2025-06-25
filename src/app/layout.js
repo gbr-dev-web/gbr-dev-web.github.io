@@ -22,9 +22,9 @@ export function generateViewport() {
 }
 
 export const metadata = {
-  title: "Gabriel Martins - Desenvolvedor Web Fullstack | Portfólio",
+  title: "Desenvolvedor Web Freelancer | React, Node.js e Sites Profissionais",
   description:
-    "Portfólio de Gabriel Martins, desenvolvedor web fullstack, mostrando projetos, habilidades e experiência profissional.",
+    "Gabriel Martins é um desenvolvedor freelancer especializado em criar sites rápidos, responsivos e com bom SEO usando React, Node.js e Tailwind. Atende clientes de todo o Brasil.",
   verification: {
     google: "EBkE2UVxki1-EEwP7ZjSMA4gbIFaf48tz8lKEk8d8nA",
   },

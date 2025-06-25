@@ -19,6 +19,7 @@ import Quote from "@/assets/icons/quote.svg";
 import Github from "@/assets/social/github.svg";
 import Linkedin from "@/assets/social/linkedin.svg";
 import Email from "@/assets/social/email.svg";
+import Instagram from "@/assets/social/Instagram.svg";
 
 import perfil from "@/assets/img/perfil.webp";
 
@@ -96,7 +97,7 @@ export default function MainContent() {
       <TechMarquee />
 
       <section id="sobre" className="mt-6">
-        <h3>Sobre Mim</h3>
+        <h3 className="mb-4">Sobre Mim</h3>
 
         {/* sobre mim */}
         <div className="flex flex-col lg:flex-row justify-start items-center gap-6 lg:gap-10">
@@ -270,47 +271,50 @@ export default function MainContent() {
         </div>
       </section>
 
-      {/* contato */}
-      <div
-        id="contato"
-        className="w-fill items-center flex flex-col justify-center mt-10"
-      >
-        <h2>Entre em Contato</h2>
-        <h6 className="text-[#c4c4c4]">Vamos conversar!</h6>
-      </div>
+      <section id="contato">
+        <div className="w-fill items-center flex flex-col justify-center mt-6 mb-4">
+          <h2>Entre em Contato</h2>
+          <h6 className="text-[#c4c4c4]">Vamos conversar!</h6>
+        </div>
 
-      <div className="flex flex-col justify-center items-center gap-8 w-full">
-        <button
-          className="holographic-hover p-2.5 rounded-[10px] shadow-[8px_8px_0px_0px_rgba(0,0,0,1.00)] outline outline-orange-500 inline-flex flex-col justify-center items-center gap-2.5 bg-transparent hover:bg-gray-800 transition-all duration-300"
-          onClick={() =>
-            window.open(
-              "https://mail.google.com/mail/?view=cm&fs=1&to=gabrielsil20177@gmail.com",
-              "_blank"
-            )
-          }
-        >
-          <span className="relative z-10 text-white text-xl font-bold font-['Inter'] leading-normal text-center">
-            E-MAIL
-          </span>
-        </button>
-        <Suspense fallback={<div>Carregando...</div>}>
-          <div className="flex justify-start items-center gap-5">
-            <IconLink icon={Github} href="https://github.com/gbr-dev-web" />
-            <IconLink
-              icon={Email}
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=gabrielsil20177@gmail.com"
-            />
-            <IconLink
-              icon={Linkedin}
-              href="https://www.linkedin.com/in/gabriel-martins-042900279"
-            />
-          </div>
-        </Suspense>
+        <div className="flex flex-col justify-center items-center gap-8 w-full">
+          <button
+            className="holographic-hover p-2.5 rounded-[10px] shadow-[8px_8px_0px_0px_rgba(0,0,0,1.00)] outline outline-orange-500 inline-flex flex-col justify-center items-center gap-2.5 bg-transparent hover:bg-gray-800 transition-all duration-300"
+            onClick={() =>
+              window.open(
+                "https://wa.me/5585996594003?text=Olá!%20Vim%20pelo%20site,%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços",
+                "_blank"
+              )
+            }
+          >
+            <span className="relative z-10 text-white text-xl font-bold font-['Inter'] leading-normal text-center">
+              WHATSAPP
+            </span>
+          </button>
 
-        <p className="max-[400px]:text-[0.7rem]">
-          Copyright &copy; 2025 Gabriel Martins
-        </p>
-      </div>
+          <Suspense fallback={<div>Carregando...</div>}>
+            <div className="flex justify-start items-center gap-5">
+              <IconLink icon={Github} href="https://github.com/gbr-dev-web" />
+              <IconLink
+                icon={Instagram}
+                href="https://www.instagram.com/gabriel.martins.dev/"
+              />
+              <IconLink
+                icon={Email}
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=gabrielsil20177@gmail.com"
+              />
+              <IconLink
+                icon={Linkedin}
+                href="https://www.linkedin.com/in/gabriel-martins-042900279"
+              />
+            </div>
+          </Suspense>
+
+          <p className="max-[400px]:text-[0.7rem]">
+            Copyright &copy; 2025 Gabriel Martins
+          </p>
+        </div>
+      </section>
 
       <div
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
