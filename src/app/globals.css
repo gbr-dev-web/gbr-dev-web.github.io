@@ -117,3 +117,12 @@ span {
     animation: marquee-reverse 20s linear infinite;
   }
   
+
+  /* se não usar plugin de scrollbar */
+.scroll-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll-hidden {
+    -ms-overflow-style: none; /* IE e Edge */
+    scrollbar-width: none; /* Firefox */
+  }

@@ -28,12 +28,14 @@ import ImageSliderLC from "../sliders/ImageSliderLC";
 
 import TechMarquee from "../TechMarquee";
 
+import Projects from "../sections/Projects";
+
 const IconLink = lazy(() => import("../IconLink"));
 const NavMobile = lazy(() => import("../NavMobile"));
 
 export default function MainContent() {
   return (
-    <div className="inline-flex flex-col justify-start items-center gap-6 lg:gap-8">
+    <div className="flex flex-col justify-start items-center gap-6 lg:gap-8">
       {/* NAV COMPLETA - só em telas maiores */}
       <nav className="hidden md:flex bg-black justify-between items-center z-10 px-3.5 py-[5px] rounded-[10px] outline outline-[-2px] outline-offset-[-1.30px] outline-orange-500">
         <ul className="flex list-none gap-6">
@@ -244,6 +246,8 @@ export default function MainContent() {
           <ImageSliderLC />
         </div>
       </section>
+
+      <Projects />
 
       <section id="feedbacks" className="mt-6 w-full">
         <h3 className="mb-4">Feedbacks</h3>
