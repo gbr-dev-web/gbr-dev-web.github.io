@@ -3,16 +3,7 @@
 import { Suspense, lazy } from "react";
 import Image from "next/image";
 
-import storeapp1 from "@/assets/img/storeapp/storeapp.webp";
-import storeapp2 from "@/assets/img/storeapp/storeapp2.png";
-import storeapp3 from "@/assets/img/storeapp/storeapp3.png";
-
-import blogapp from "@/assets/img/blogapp/blogapp.webp";
-import blogapp2 from "@/assets/img/blogapp/blogapp2.png";
-import blogapp3 from "@/assets/img/blogapp/blogapp3.png";
-
 import Plus from "@/assets/icons/plus.svg";
-import External from "@/assets/icons/externalLink.svg";
 import Arrow from "@/assets/icons/arrowUp.svg";
 import Quote from "@/assets/icons/quote.svg";
 
@@ -22,9 +13,6 @@ import Email from "@/assets/social/email.svg";
 import Instagram from "@/assets/social/Instagram.svg";
 
 import perfil from "@/assets/img/perfil.webp";
-
-import ProjectSlider from "../sliders/ImageSlider";
-import ImageSliderLC from "../sliders/ImageSliderLC";
 
 import TechMarquee from "../TechMarquee";
 
@@ -164,86 +152,6 @@ export default function MainContent() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section id="projetos" className="mt-6 w-full">
-        <div className="mb-4">
-          <h3>Projetos</h3>
-          <p className="text-center text-sm text-[#c4c4c4]">(clique neles!)</p>
-        </div>
-
-        <div className="grid grid-cols-2 w-full max-[400px]:px-2 px-6 sm:px-12 md:px-16 lg:px-20 xl:px-24 gap-2.5">
-          <div className="flex flex-col gap-2.5">
-            {/* storeapp */}
-            <ProjectSlider
-              images={[
-                { src: storeapp1, position: "object-top" },
-                { src: storeapp2, position: "object-center" },
-                { src: storeapp3, position: "object-bottom" },
-              ]}
-              title="StoreApp"
-              description={
-                <>
-                  Projeto pessoal baseado em <span>e-commerce</span> criado para
-                  fins <span>didáticos</span>, o usuário pode{" "}
-                  <span>colocar</span> produtos na lista de{" "}
-                  <span>favoritos</span>, <span>colocar</span> produtos no{" "}
-                  <span>carrinho</span> e <span>finalizar pedido</span>. Ele
-                  possui design <span>responsivo</span>, sistema de autenticação{" "}
-                  <span>segura</span> e boa estruturação com o padrão{" "}
-                  <span>MVC</span>.
-                </>
-              }
-              skills={[
-                "Node.js",
-                "MySQL",
-                "Handlebars",
-                "Javascript",
-                "Tailwind",
-              ]}
-              links={[
-                {
-                  icon: Github,
-                  href: "https://github.com/gbr-dev-web/Storeapp",
-                  text: "Repositório",
-                },
-                {
-                  icon: External,
-                  href: "https://storeapp-klm0.onrender.com/",
-                  text: "Acesse",
-                },
-              ]}
-            />
-            {/* blogapp */}
-            <ProjectSlider
-              images={[
-                { src: blogapp, position: "object-top" },
-                { src: blogapp2, position: "object-top" },
-                { src: blogapp3, position: "object-top" },
-              ]}
-              title="Blogapp"
-              description={
-                <>
-                  BlogApp é uma <span>aplicação</span> baseada em{" "}
-                  <span>Blog</span>, através dele eu tive meu primeiro contato
-                  com <span>React</span> na prática, o usuário pode criar posts
-                  linguagem <span>Markdown</span> de forma <span>segura</span>{" "}
-                  prevenindo <span>XSS</span>.
-                </>
-              }
-              skills={["React", "Javascript", "Tailwind"]}
-              links={[
-                {
-                  icon: Github,
-                  href: "https://github.com/gbr-dev-web/blogApp",
-                  text: "Repositório",
-                },
-              ]}
-            />
-          </div>
-          {/* Lucas Gesso */}
-          <ImageSliderLC />
         </div>
       </section>
 

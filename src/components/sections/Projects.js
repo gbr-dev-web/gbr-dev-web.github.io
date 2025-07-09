@@ -3,40 +3,55 @@ import React, { useState, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
-import storeapp1 from "@/assets/img/storeapp/storeapp.webp";
+import storeapp1 from "@/assets/img/storeapp.webp";
 import lawyer from "@/assets/img/lawyer.png";
-import blogapp from "@/assets/img/blogapp/blogapp.webp";
+import blogapp from "@/assets/img/blogapp.webp";
 import lucasGesso from "@/assets/img/lucasGesso.png";
 
 export default function Projects() {
   const scrollRef = useRef(null);
+  const cardRef = useRef(null);
   const [scrollX, setScrollX] = useState(0);
   const [scrollEnd, setScrollEnd] = useState(false);
 
-  const slide = (shift) => {
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  const slide = (direction) => {
+    if (isScrolling || !scrollRef.current || !cardRef.current) return;
+
     const el = scrollRef.current;
-    if (!el) return;
-    el.scrollBy({ left: shift, behavior: "smooth" });
-    const scrollLeft = el.scrollLeft + shift;
-    setScrollEnd(el.scrollWidth - scrollLeft <= el.offsetWidth);
-    setScrollX(scrollLeft);
+    const cardWidth = cardRef.current.offsetWidth + 24;
+
+    setIsScrolling(true);
+
+    // scrollBy não retorna promessa, então escutamos o "scroll"
+    el.scrollBy({ left: direction * cardWidth, behavior: "smooth" });
+
+    // Espera final da rolagem com debounce curto
+    const timeout = setTimeout(() => {
+      scrollCheck(); // garante valores atualizados após scroll
+      setIsScrolling(false);
+    }, 350); // tempo ligeiramente menor para manter fluidez
   };
 
   const scrollCheck = () => {
     const el = scrollRef.current;
     if (!el) return;
+  
+    const reachedEnd = Math.ceil(el.scrollLeft + el.offsetWidth) >= el.scrollWidth;
+  
     setScrollX(el.scrollLeft);
-    setScrollEnd(el.scrollWidth - el.scrollLeft <= el.offsetWidth);
+    setScrollEnd(reachedEnd);
   };
 
   const projects = [
     {
       title: "Lawyer Advocacia",
       description:
-        "Website profissional para autônomos, com foco em advogados, exibindo especializações jurídicas, experiências e formas práticas de contato.",
+        "Website profissional com foco em advogados, exibindo especializações jurídicas, experiências e formas práticas de contato.",
       image: lawyer,
       tags: ["Profissional autônomo", "Institucional", "Landing Page"],
-      url: "https://advogado-seven.vercel.app/", 
+      url: "https://advogado-seven.vercel.app/",
     },
     {
       title: "Lucas Gesso",
@@ -52,7 +67,7 @@ export default function Projects() {
         "Projeto pessoal de e-commerce didático com favoritos, carrinho, checkout, design responsivo e autenticação segura.",
       image: storeapp1,
       tags: ["E-commerce", "Interface Moderna", "Loja Online"],
-      url: "https://storeapp-klm0.onrender.com/", 
+      url: "https://storeapp-klm0.onrender.com/",
     },
     {
       title: "BlogApp",
@@ -60,7 +75,7 @@ export default function Projects() {
         "BlogApp é uma aplicação de blog pra fins didáticos onde você pode criar posts usando Markdown de forma segura.",
       image: blogapp,
       tags: ["Blog", "Markdown"],
-      url: "https://github.com/gbr-dev-web/blogApp", 
+      url: "https://github.com/gbr-dev-web/blogApp",
     },
   ];
 
@@ -77,7 +92,8 @@ export default function Projects() {
         {projects.map((project, idx) => (
           <article
             key={idx}
-            className="w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] my-4 rounded-lg bg-black shadow-[0px_0px_8px_0px_rgba(255,104,0,1.00)]  flex-shrink-0"
+            ref={idx === 0 ? cardRef : null}
+            className="w-[300px] sm:w-[320px] md:w-[360px] lg:w-[400px] my-4 rounded-lg bg-black shadow-[0px_0px_8px_0px_rgba(255,104,0,1.00)] flex-shrink-0"
           >
             <div className="relative w-full h-56 rounded-t-lg overflow-hidden">
               <Image
@@ -95,7 +111,7 @@ export default function Projects() {
                 {project.title}
               </h3>
 
-              <p className="mt-2 line-clamp-3 text-sm/relaxed text-white/75 ">
+              <p className="mt-2 text-sm sm:text-base text-white/75 ">
                 {project.description}
               </p>
 
@@ -144,15 +160,15 @@ export default function Projects() {
       {/* botoes */}
       <div className="mt-4 flex justify-center space-x-2">
         <button
-          onClick={() => slide(-336)}
-          disabled={scrollX <= 0}
+          onClick={() => slide(-1)}
+          disabled={scrollX <= 0 || isScrolling}
           className="p-2 bg-white/10 rounded hover:bg-white/20 disabled:opacity-50"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
-          onClick={() => slide(336)}
-          disabled={scrollEnd}
+          onClick={() => slide(1)}
+          disabled={scrollEnd || isScrolling}
           className="p-2 bg-white/10 rounded hover:bg-white/20 disabled:opacity-50"
         >
           <ChevronRight className="w-5 h-5" />
